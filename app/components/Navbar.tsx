@@ -7,10 +7,10 @@ const Navbar = () => {
   console.log(userId);
   return (
     <>
-      <nav className="sticky top-0 bg-blue-700 py-4 px-6 items-center flex">
+      <nav className="fixed w-full z-10 top-0 bg-primary py-4 px-6 ">
         <div className="flex items-center">
           <Link href="/">
-            <div className="text-white uppercase">Test</div>
+            <div className="text-white  font-bold text-xl">LinkUp</div>
           </Link>
         </div>
       </nav>
