@@ -1,17 +1,16 @@
 import Image from "next/image";
-import MeetingCard from "../components/MeetingCard";
+import MeetingCard from "../../components/MeetingCard";
 import { CiCalendar } from "react-icons/ci";
 import { CiSquarePlus } from "react-icons/ci";
 import { MdGroups2 } from "react-icons/md";
 import { BiVideoRecording } from "react-icons/bi";
-import WelcomeCard from "../components/WelcomeCard";
-import CalendarCard from "../components/CalendarCard";
+import WelcomeCard from "../../components/WelcomeCard";
+import CalendarCard from "../../components/CalendarCard";
 
 export default function Home() {
   return (
     <div className="flex gap-4 flex-col md:flex-row p-4">
       <div className="flex flex-col w-full lg:w-2/3 gap-4">
-        {" "}
         <div className="flex gap-4 flex-wrap h-[450px]">
           <WelcomeCard />
         </div>

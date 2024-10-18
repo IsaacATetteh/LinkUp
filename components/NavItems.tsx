@@ -65,7 +65,7 @@ const navItems = [
 
 const NavItems = () => {
   return (
-    <div className="mt-4 text-lg">
+    <div className="mt-4 text-sm">
       {navItems.map((navItems) => (
         <div className="flex flex-col gap-2" key={navItems.title}>
           <span className="hidden lg:block text-lg text-gray-400 my-4 font-light uppercase">

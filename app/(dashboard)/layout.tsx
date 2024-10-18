@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import NavItems from "../components/NavItems";
-import Navbar from "../components/Navbar";
+import NavItems from "../../components/NavItems";
+import Navbar from "../../components/Navbar";
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
