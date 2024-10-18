@@ -21,7 +21,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
         <NavItems />
       </div>
       {/* Right */}
-      <div className="w-[86%] md:w-[92%] lg:w-[80%] xl:w-[86%] bg-secondary overflow-scroll">
+      <div className="w-[86%] md:w-[92%] lg:w-[80%] xl:w-[86%] bg-secondary/60 overflow-scroll">
         <Navbar />
         {children}
       </div>

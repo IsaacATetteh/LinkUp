@@ -5,13 +5,14 @@ import { CiSquarePlus } from "react-icons/ci";
 import { MdGroups2 } from "react-icons/md";
 import { BiVideoRecording } from "react-icons/bi";
 import WelcomeCard from "../components/WelcomeCard";
+import CalendarCard from "../components/CalendarCard";
 
 export default function Home() {
   return (
     <div className="flex gap-4 flex-col md:flex-row p-4">
       <div className="flex flex-col w-full lg:w-2/3 gap-4">
         {" "}
-        <div className="flex gap-4 flex-wrap">
+        <div className="flex gap-4 flex-wrap h-[450px]">
           <WelcomeCard />
         </div>
         <div className="flex flex-wrap gap-4 justify-between">
@@ -37,7 +38,9 @@ export default function Home() {
           />
         </div>
       </div>
-      <div className="w-full lg:w-1/3">r</div>
+      <div className="w-full lg:w-1/3">
+        <CalendarCard />
+      </div>
     </div>
   );
 }

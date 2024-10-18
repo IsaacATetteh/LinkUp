@@ -22,6 +22,10 @@ const WelcomeCard = () => {
           height={100}
         />
       </div>
+      <div className="pt-4">
+        <h3 className="text-lg font-bold">Your agenda today:</h3>
+        <p></p>
+      </div>
     </div>
   );
 };

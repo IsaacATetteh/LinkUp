@@ -79,3 +79,11 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.react-calendar {
+  width: 100% !important;
+  border: none !important;
+}
+
+
+
