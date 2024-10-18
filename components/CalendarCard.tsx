@@ -32,13 +32,21 @@ const invitations = [
       icon: undefined,
     },
   },
+  {
+    id: 3,
+    title: "Meeting with Doe",
+    sender: {
+      name: "Doe",
+      icon: undefined,
+    },
+  },
 ];
 
 type Value = ValuePiece | [ValuePiece, ValuePiece];
 const CalendarCard = () => {
   const [value, onChange] = useState<Value>(new Date());
   return (
-    <div className="p-4 bg-white w-full">
+    <div className="p-4 bg-white ">
       <Calendar onChange={onChange} value={value} className="w-full" />
       <div className="flex items-center justify-between">
         <h1 className="font-bold text-xl my-4">Invitations</h1>
@@ -50,15 +58,18 @@ const CalendarCard = () => {
             className="p-2 lg:p-5 rounded-md  border-gray-100 border-t-4 border-t-[#CECEFE]"
             key={invitation.id}
           >
-            <div className="flex items-center gap-2 cursor-pointer">
-              <div className="flex items-center justify-center text-white h-8 w-8 rounded-full bg-[#9a76f5]">
-                {invitation.sender.icon
-                  ? invitation.sender.icon
-                  : invitation.sender.name.charAt(0)}
+            <div className="flex items-center justify-between w-full">
+              <div className="flex items-center gap-2 w-ful">
+                <div className="flex items-center justify-center text-white h-8 w-8 rounded-full bg-[#9a76f5]">
+                  {invitation.sender.icon
+                    ? invitation.sender.icon
+                    : invitation.sender.name.charAt(0)}
+                </div>{" "}
+                <h1 className="font-semibold text-gray-600 overflow-y-hidden">
+                  {invitation.sender.name} sent an invite
+                </h1>
               </div>
-              <h1 className="font-semibold text-gray-600">
-                {invitation.sender.name} invited you to a meeting
-              </h1>
+              <span className="text-gray-300 text-xs">18/10/2024</span>
             </div>
           </div>
         ))}

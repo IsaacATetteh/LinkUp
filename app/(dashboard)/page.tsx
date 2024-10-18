@@ -6,6 +6,7 @@ import { MdGroups2 } from "react-icons/md";
 import { BiVideoRecording } from "react-icons/bi";
 import WelcomeCard from "../../components/WelcomeCard";
 import CalendarCard from "../../components/CalendarCard";
+import ReminderCard from "@/components/ReminderCard";
 
 export default function Home() {
   return (
@@ -37,8 +38,9 @@ export default function Home() {
           />
         </div>
       </div>
-      <div className="w-full lg:w-1/3">
+      <div className="flex flex-col w-full lg:w-1/3 gap-8">
         <CalendarCard />
+        <ReminderCard />
       </div>
     </div>
   );
