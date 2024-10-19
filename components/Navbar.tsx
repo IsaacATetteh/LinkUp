@@ -4,7 +4,6 @@ import { UserButton } from "@clerk/nextjs";
 
 const Navbar = () => {
   const { userId } = auth();
-  console.log(userId);
   return (
     <nav className="flex justify-between items-center p-4">
       <div></div>
