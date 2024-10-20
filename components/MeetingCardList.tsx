@@ -16,9 +16,50 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useUser } from "@clerk/clerk-react";
+import {
+  Call,
+  StreamVideo,
+  StreamVideoClient,
+  useStreamVideoClient,
+} from "@stream-io/video-react-sdk";
 import { Textarea } from "./ui/textarea";
 
 const MeetingCardList = () => {
+  const { user, isLoaded } = useUser();
+  const [call, setcall] = useState<Call>();
+  const client = useStreamVideoClient();
+
+  const [meetingInfo, setmeetingInfo] = useState({
+    title: "",
+    description: "",
+    started: new Date(),
+  });
+  const handleMeetingCreate = async () => {
+    if (!isLoaded || !user) return;
+    const callType = "default";
+    if (!client) return;
+    try {
+      const callId = crypto.randomUUID();
+      const call = client.call(callType, callId);
+      const startTime = meetingInfo.started.toISOString();
+      const title = meetingInfo.title;
+      const description = meetingInfo.description;
+      // optionally provide additional data
+      await call.getOrCreate({
+        data: {
+          starts_at: startTime,
+          custom: {
+            description,
+          },
+        },
+      });
+
+      setcall(call);
+    } catch (error) {
+      console.log("Error creating meeting", error);
+    }
+  };
   return (
     <>
       {/* New Meeting Button */}
@@ -52,9 +93,12 @@ const MeetingCardList = () => {
               </Label>
               <Textarea id="description" className="col-span-3" />
             </div>
+            {call && <MeetingLink call={call} />}
           </div>
           <DialogFooter>
-            <Button type="submit">Create</Button>
+            <Button onClick={handleMeetingCreate} type="submit">
+              Create
+            </Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
@@ -90,3 +134,12 @@ const MeetingCardList = () => {
 };
 
 export default MeetingCardList;
+
+interface MeetingLinkProps {
+  call: Call;
+}
+
+function MeetingLink({ call }: MeetingLinkProps) {
+  const meetLink = `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${call.id}`;
+  return <div className="text-center">{meetLink}</div>;
+}
